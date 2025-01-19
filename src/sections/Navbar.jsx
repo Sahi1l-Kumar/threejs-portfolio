@@ -18,7 +18,8 @@ const NavItems = () => {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90">
@@ -32,7 +33,7 @@ const Navbar = () => {
           </a>
           <button
             onClick={toggleMenu}
-            className="text-neutral-400 hover:text-white focus:outline-none sm:hidden"
+            className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu"
           >
             <img
@@ -48,7 +49,7 @@ const Navbar = () => {
       </div>
       <div className={`nav-sidebar ${isOpen ? "max-h-screen" : "max-h-0"}`}>
         <nav className="p-5">
-          <NavItems />
+          <NavItems onClick={closeMenu} />
         </nav>
       </div>
     </header>
