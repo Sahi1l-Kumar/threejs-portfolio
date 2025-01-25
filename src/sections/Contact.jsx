@@ -72,11 +72,11 @@ const Contact = () => {
         <img
           src="/assets/terminal.png"
           alt="terminal-bg"
-          className="absolute inset-0 min-h-screen"
+          className="absolute inset-0 min-h-screen w-[105%] h-[105%] sm:w-[110%] sm:h-[110%] md:w-[110%] md:h-[110%] lg:w-auto lg:h-auto"
         />
 
         <div className="contact-container">
-          <h3 className="head-text">Let&apos;s talk</h3>
+          <h3 className="head-text sm:mt-10 mt-5">Let&apos;s talk</h3>
           <p className="text-lg text-white-600 mt-3">
             Whether you&apos;re looking to build a new website, improve your
             existing platform, or bring a unique project to life, I&apos;m here
