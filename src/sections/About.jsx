@@ -27,7 +27,7 @@ const About = () => {
             />
 
             <div>
-              <p className="grid-headtext">Hi, I&apos;m Sahil Kumra</p>
+              <p className="grid-headtext">Hi, I&apos;m Sahil Kumar</p>
               <p className="grid-subtext">
                 With 1 year of experience, I have honed my skills in both
                 frontend and backend dev, creating dynamic and responsive
