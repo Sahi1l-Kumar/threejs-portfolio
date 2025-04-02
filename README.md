@@ -23,7 +23,7 @@ A modern 3D portfolio built using React, Three.js, and Vite. This project showca
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-username/threejs-portfolio.git
+   git clone https://github.com/Sahi1l-Kumar/threejs-portfolio.git
    cd threejs-portfolio
    ```
 
