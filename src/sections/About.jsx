@@ -1,18 +1,32 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Globe from "react-globe.gl";
-
 import Button from "../components/Button.jsx";
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
+  const globeEl = useRef();
+  const [isGlobeReady, setIsGlobeReady] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("sk015221@gmail.com");
+    navigator.clipboard.writeText("sahil.kumar.workonly@gmail.com");
     setHasCopied(true);
 
     setTimeout(() => {
       setHasCopied(false);
     }, 2000);
+  };
+
+  const handleLocate = () => {
+    if (isGlobeReady && globeEl.current) {
+      globeEl.current.pointOfView(
+        {
+          lat: 22.744028,
+          lng: 86.208944,
+          altitude: 0.3,
+        },
+        1500
+      );
+    }
   };
 
   return (
@@ -29,9 +43,10 @@ const About = () => {
             <div>
               <p className="grid-headtext">Hi, I&apos;m Sahil Kumar</p>
               <p className="grid-subtext">
-                With 1 year of experience, I have honed my skills in both
-                frontend and backend dev, creating dynamic and responsive
-                websites.
+                Over the past year, I&apos;ve actively contributed to open
+                source projects, sharpening my frontend and backend development
+                skills. I build dynamic, responsive web applications and enjoy
+                collaborating with global developer communities.
               </p>
             </div>
           </div>
@@ -59,6 +74,7 @@ const About = () => {
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
+                ref={globeEl}
                 height={326}
                 width={326}
                 backgroundColor="rgba(0, 0, 0, 0)"
@@ -67,6 +83,16 @@ const About = () => {
                 showGraticules
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+                labelsData={[
+                  {
+                    lat: 22.744028,
+                    lng: 86.208944,
+                    text: "I'm here!",
+                    color: "blue",
+                    size: 20,
+                  },
+                ]}
+                onGlobeReady={() => setIsGlobeReady(true)}
               />
             </div>
             <div>
@@ -77,7 +103,12 @@ const About = () => {
                 I&apos;m based in Jharkhand, India and open to remote work
                 worldwide.
               </p>
-              <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
+              <Button
+                name="Locate Me on the Map"
+                isBeam
+                containerClass="w-full mt-10"
+                onClick={handleLocate}
+              />
             </div>
           </div>
         </div>
@@ -94,7 +125,7 @@ const About = () => {
               <p className="grid-headtext">My Passion for Coding</p>
               <p className="grid-subtext">
                 I love solving problems and building things through code.
-                Programming isn&apos;t just my profession—it&apos;s my passion.
+                Programming isn&apos;t just my profession-it&apos;s my passion.
                 I enjoy exploring new technologies, and enhancing my skills.
               </p>
             </div>
@@ -116,8 +147,8 @@ const About = () => {
                   src={hasCopied ? "assets/tick.svg" : "assets/copy.svg"}
                   alt="copy"
                 />
-                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">
-                  sk015221@gmail.com
+                <p className="lg:text-xl md:text-lg sm:text-base font-medium text-gray_gradient text-white break-all">
+                  sahil.kumar.workonly@gmail.com
                 </p>
               </div>
             </div>
